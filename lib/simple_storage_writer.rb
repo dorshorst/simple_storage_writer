@@ -1,5 +1,5 @@
 module SimpleStorageWriter
   
-  autoload :Base, 'simple_storage_write/base'
+  autoload :Base, 'simple_storage_writer/base'
   
 end

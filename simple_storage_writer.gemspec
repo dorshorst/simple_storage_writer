@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = '>= 1.3.7'
 
   s.add_dependency 'actionpack', '~> 3.2.13'
-  s.add_dependency 'aws-sdk',    '~> 1.5.0'
+  s.add_dependency 'aws-sdk',    '~> 1.8.3'
 
   s.files        = Dir.glob("lib/**/*") + %w(README.md)
   s.require_path = 'lib'
