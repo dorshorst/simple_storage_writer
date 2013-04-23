@@ -1,13 +1,21 @@
+require 'abstract_controller/asset_paths'
+require 'abstract_controller/helpers'
+require 'abstract_controller/layouts'
+require 'abstract_controller/logger'
+require 'abstract_controller/rendering'
+require 'abstract_controller/translation'
+require 'aws-sdk'
+
 module SimpleStorageWriter
   class Base < AbstractController::Base
     abstract!
 
+    include AbstractController::AssetPaths
+    include AbstractController::Helpers
+    include AbstractController::Layouts
     include AbstractController::Logger
     include AbstractController::Rendering
-    include AbstractController::Layouts
-    include AbstractController::Helpers
     include AbstractController::Translation
-    include AbstractController::AssetPaths
     
     self.view_paths = 'app/views'
 
