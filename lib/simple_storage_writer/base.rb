@@ -67,8 +67,14 @@ module SimpleStorageWriter
      if @compress
        content = ActiveSupport::Gzip.compress(html)
        bucket.objects[filename].write(content, acl: :public_read, content_encoding: 'gzip', content_type: 'text/html')
+       if @include_lowercase
+         bucket.objects[filename.downcase].write(content, acl: :public_read, content_encoding: 'gzip', content_type: 'text/html')
+       end
      else
        bucket.objects[filename].write(html, acl: :public_read)
+       if @include_lowercase
+         bucket.objects[filename.downcase].write(html, acl: :public_read)
+       end
      end
     end
 
@@ -76,6 +82,7 @@ module SimpleStorageWriter
 
     def upload(filename, options={})
       @compress = options[:compress] || false
+      @include_lowercase = options[:include_lowercase] || false
       @filename = filename
     end
 
