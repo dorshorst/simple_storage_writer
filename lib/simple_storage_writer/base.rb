@@ -58,6 +58,7 @@ module SimpleStorageWriter
     end
 
     def delete
+      bucket.objects[filename.downcase].delete if @include_lowercase
       bucket.objects[filename].delete
     end
 
